@@ -1,0 +1,30 @@
+name: Useful-Saves
+main: fr.flowarg.usefulsaves.Main
+version: 0.1.0
+load: STARTUP
+description: Useful Saves, a simple, commands only, mod to create scheduled backup of your world or extras files
+api-version: 1.13
+author: FlowArg
+authors:
+  - FlowArg
+  - Ama/ZeAmateis/JibaysMcs
+prefix: UsefulSaves
+database: false
+commands:
+  useful-saves:
+    description: All commmands of the plugin
+    permission-message: Not enough permissions
+    aliases:
+      - us
+      - u-s
+      - usaves
+    usage: /useful-saves <command> [option(s)]
+    permission: admin
+  cron:
+    description: human interpreter for cron expression
+    usage: /cron [<expression>] [<locale>]
+    permission-message: Not enough permissions
+permissions:
+  admin:
+    description: Admin permission
+    default: op

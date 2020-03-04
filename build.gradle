@@ -1,0 +1,72 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "5.2.0"
+}
+
+apply plugin: 'idea'
+apply plugin: 'java'
+
+version = '0.1.1-1.15.2'
+group = 'fr.flowarg.usefulsaves'
+archivesBaseName = 'usefulsaves'
+
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+
+repositories {
+	maven {
+        url "https://hub.spigotmc.org/nexus/content/repositories/snapshots"
+    }
+    maven {
+        url "https://hub.spigotmc.org/nexus/content/repositories/public"
+    }
+    maven {
+        url "https://libraries.minecraft.net/"
+    }
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.spigotmc:spigot-api:1.15.2-R0.1-SNAPSHOT'
+    implementation 'org.apache.logging.log4j:log4j-api:2.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.1'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'commons-lang:commons-lang:2.6'
+    implementation 'com.google.guava:guava:21.0'
+    shadow group: 'commons-io', name: 'commons-io', version: '2.6'
+    shadow group: 'org.jetbrains', name: 'annotations', version: '18.0.0'
+    shadow group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.2'
+}
+
+shadowJar {
+    configurations = [project.configurations.shadow]
+    manifest {
+        attributes([
+                "Specification-Title"     : archivesBaseName,
+                "Specification-Vendor"    : "FlowArg",
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : getArchiveVersion(),
+                "Implementation-Vendor"   : "flowarg",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                'Built-By'                : System.properties['user.name'],
+                'Created-By'              : "Gradle ${gradle.gradleVersion}",
+                'Build-Jdk'               : "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
+                'Build-OS'                : "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
+        ])
+    }
+    exclude("tests/**")
+    classifier ''
+}
+
+task zippingLang(type: Zip) {
+    from sourceSets.main.resources
+    exclude 'META-INF'
+    exclude("config.yml")
+    exclude("plugin.yml")
+    archiveName 'useful-saves-translations-pack.zip'
+    destinationDir(file("$buildDir/libs/"))
+}
+
+artifacts {
+    archives shadowJar
+}

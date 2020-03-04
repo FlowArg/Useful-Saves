@@ -9,9 +9,7 @@
 </p>
 
 ## Scheduler backing up to never lose anything !
-### Useful Saves, a simple, commands only, mod to create scheduled backup of your world or extras files
-
-_Not mandatory on the client, it could be only installed on the server !_
+### Useful Saves, a simple, commands only, plugin to create scheduled backup of your world or extras files
 
  
 ## Features
@@ -149,13 +147,6 @@ Get a human readable version of the cron expression, but in user language
 
 **Output:** `Toutes les secondes`
 
-
-# Resources packs or Mods packs maker ?
- 
-If you don't want Useful Save installed on the client, but only on the server it's possible !
-But bring translations files for printted messages in tchat !
-Download the translations pack of "Useful Save" !
-***resources/assets/usefulsaves/lang***
 
 # Useful links
 

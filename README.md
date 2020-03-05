@@ -91,9 +91,6 @@ To schedule backup task, based on crontab expression
 `/useful-saves schedule cron [<expression>] [<TimeZone>]`
 To schedule backup task, based on crontab expression, but by defining a time zone if the server clock/locale differ from user contry
 
-`/useful-saves schedule cron [<expression>] [flush]`
-flush backup file. (force writting data)
-
 ___
 
 ## - Utilitary commands

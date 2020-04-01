@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-	<a href="https://www.curseforge.com/minecraft/mc-mods/useful-saves">
+	<a href="https://dev.bukkit.org/projects/useful-saves">
   		<img width="126" height="20" src="http://cf.way2muchnoise.eu/title/364598.svg">
 	</a>
 </p>
